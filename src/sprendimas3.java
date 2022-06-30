@@ -16,57 +16,88 @@ public class sprendimas3 {
         System.out.println("RePasword = " + RePasword);
 
         boolean arVienodi = arLoginNesutampaSuPasw(login, Pasword);
-        System.out.println("Login ir Pasword negali sutapti = " + false);
+        System.out.println("Login ir Pasword negali sutapti = " + arVienodi);
         boolean arNesutampa = arNesutampaPaswordai(Pasword, RePasword);
-        System.out.println("Slaptazodziai negali nesutapti = " + false);
+        System.out.println("Slaptazodziai negali nesutapti = " + arNesutampa);
         boolean arYrasimbolis1 = aremaileYraEta(Email);
-        System.out.println("Pasto adrese turi buti @ ir . =" + false);
-        String arYraDaugiauDesimtRaidziuPasw = desimtRaidziu(Pasword);
-        System.out.println("Pasworde turi buti daugiau 10 raidziu = " + true);
+        System.out.println("Pasto adrese turi buti @ ir . =" + arYrasimbolis1);
+        Boolean arYraDaugiauDesimtRaidziuPasw = desimtRaidziu(Pasword);
+        System.out.println("Pasworde turi buti daugiau 10 raidziu = " + arYraDaugiauDesimtRaidziuPasw);
 
 
         boolean arYraMazosios = mazosiosRaides(Pasword);
-        System.out.println("Slaptazodyje turi buti bent viena mazoji raide = " + true);
+        System.out.println("Slaptazodyje turi buti bent viena mazoji raide = " + arYraMazosios);
+        boolean arYraDidziosios =didziosiosRaides(Pasword);
+        System.out.println("Slpatazodyje turi buti bent viena didzioji raide= " + arYraDidziosios);
 
 
     }
 
     public static boolean arLoginNesutampaSuPasw(String login, String Pasword) {
-        if (login.equals(Pasword)) ;
-        {
+        if (login.equals(Pasword)) {
             return true;
+        }
+        else {
+            return false;
         }
     }
 
     public static boolean arNesutampaPaswordai(String Pasword, String RePasword) {
-        if (Pasword.equals(RePasword)) ;
+        if (Pasword.equals(RePasword))
+        {
+            return true;
+        }
+        else {
+         return   false;
+        }
+
+    }
+
+    public static boolean aremaileYraEta(String Email) {
+        if (Email.contains("@") && Email.contains("."))
+        {
+            return true;
+        }
+        else {
+            return false;
+        }
+
+    }
+
+    public static boolean desimtRaidziu(String Pasword) {
+        String S = Pasword;
+        int lend = S.length();
+        if (lend > 10)
+        {
+            return true;
+        }
+        else
         {
             return false;
         }
     }
 
-    public static boolean aremaileYraEta(String Email) {
-        if (Email.contains("@")) if (Email.contains(".")) ;
-        {
-
+    public static boolean didziosiosRaides(String Pasword) {
+        if (Pasword.equals(Pasword.toUpperCase())) {
+            return false;
+        }
+        else {
             return true;
         }
     }
 
-    public static String desimtRaidziu(String Pasword) {
-        String S = Pasword;
-        int lend = S.length();
-        if (lend > 10) ;
-        return S;
-    }
-
     public static boolean mazosiosRaides(String Pasword) {
-        if (Pasword.equals(Pasword.toLowerCase())) ;
-        boolean b = false;
-        return b;
-
+        if (Pasword.equals(Pasword.toLowerCase())) {
+            return false;
+        }
+        else {
+            return true;
+        }
     }
+
 }
+
+
 
 
 
